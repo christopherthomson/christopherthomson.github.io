@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" ><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en" ><!--<![endif]-->
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>XQuery: docx to <span class="caps">TEI</span> (part&nbsp;1) | Christopher Thomson</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="christopherthomson.github.io/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="christopherthomson.github.io/theme/css/pelican-foundation.css" />
+    <script src="christopherthomson.github.io/theme/js/vendor/custom.modernizr.js"></script>
+
+</head>
+
+<body>
+    <!-- nav bar -->
+    <div class="row">
+        <div class="large-3 columns">
+            <figure id="user_logo">
+                <a href="christopherthomson.github.io"><div class="logo"><img src="christopherthomson.github.io/theme/img/giraffe2.png" alt="Christopher Thomson"></div></a>
+            </figure>
+        </div>
+        <div class="large-8 columns panel">
+            <ul class="inline-list right">
+                        <li><a href="christopherthomson.github.io/pages/about.html">About</a></li>
+                        <li><a href="christopherthomson.github.io/pages/projects.html">Projects</a></li>
+                        <li><a href="christopherthomson.github.io/pages/teaching.html">Teaching</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- author information/sidebar -->
+        <div class="large-4 columns">
+            <h2 class="subheader"><small>chris</small></h1>
+            <p class="hide-for-small">Writings and other morsels...</p>
+
+        </div>
+
+        <!-- main content -->
+        <div class="large-8 columns">
+    <article>
+        <h2 class="title">XQuery: docx to <span class="caps">TEI</span> (part&nbsp;1) <small><a href="christopherthomson.github.io/xquery-docx-to-tei-part-1.html" rel="bookmark" title="Permalink to XQuery: docx to TEI (part 1)">&para;</small></a></h2>
+        <p>I&#8217;m working on converting a large bibliography&nbsp;from Microsoft Word docx
+format to <span class="caps">TEI</span>. &nbsp;<a class="reference external" href="http://christopherthomson.co.nz/blog/?p=68">A few months ago</a> I was pretty certain I&#8217;d be
+approaching this with a manual process, mostly because of the difficulty
+of constructing divs for each type of bibliography entry and other
+structured sections. But Word styles and <a class="reference external" href="http://oxgarage.oucs.ox.ac.uk:8080/ege-webclient/">OxGarage</a> makes it possible
+to convert from docx to <span class="caps">TEI</span> with enough structure that most of the
+difficulties I saw then can be&nbsp;overcome.</p>
+<p>Luckily, the original document had an index of authors which marked the
+start of each entry, and styles had been applied fairly consistently to
+distinguish headings, annotations and citations. Here&#8217;s an example of
+the structure of the entry I wanted to&nbsp;isolate:</p>
+<p><tt class="docutils literal"><span class="pre">[gist]http://gist.github.com/3606192[/gist]</span></tt></p>
+<p>The problem is that there&#8217;s no tag to define where this entry ends - it
+just lists another paragraph containing an author name and so on. The
+first step needed was to go from an &#8216;anchor&#8217; marking the start - in this
+case I used the index element - to a complete <span class="caps">XML</span> element wrapping each
+author&#8217;s entry.&nbsp; Google turned up <a class="reference external" href="http://stackoverflow.com/questions/6865667/xpath-flat-hierarchy-and-stop-condition">a rather complex piece of XQuery</a> to
+solve the&nbsp;problem.</p>
+<p>This required very little adjustment to get the result I was after. I
+just changed the selection of the $childs and tweaked the formula used
+within the element constructor to ensure the first paragraph was&nbsp;included.</p>
+<p>The next step was to split the file into a collection of separate files,
+one for each entry. &nbsp;Again, the work has been <a class="reference external" href="http://en.wikibooks.org/wiki/XQuery/Splitting_Files">done and documented</a>.</p>
+<p>This worked well with only a couple of small changes to the element
+constructor from the example given: 1) I added the suggested $count to
+generate a numbered filename, and 2) I needed to remove some stray
+whitespace in the element I used for the entry name, using
+fn:normalize-space(text()). I ran the query in the browser rather than
+in oXygen 12.2, as I couldn&#8217;t get oXygen to recognise the xmldb
+namespace needed for this code (this seems to be because oXygen was
+using Saxon rather than eXist to parse the XQuery, despite the
+Preferences saying it should use eXist). The element constructor to be
+returned looked like&nbsp;this:</p>
+<p>[gist]https://gist.github.com/3606928[/gist]</p>
+<p>The next step will be creating some more structure with div and
+biblStruct elements, and then I&#8217;ll need to pull apart the citations&nbsp;themselves.</p>
+
+        <p><small>
+            Written on <time datetime="2012-07-01T22:02:00" pubdate>Sun 01 July 2012</time>.&nbsp;
+                Categorized under:  <a href="christopherthomson.github.io/category/uncategorized.html">Uncategorized</a>.&nbsp;
+        </small></p>
+    </article>
+
+
+    <footer>
+        <a href="christopherthomson.github.io/" class="button small round">&larr;&nbsp;&nbsp;&nbsp;Read more</a>
+    </footer>
+
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="row">
+            <div class="large-12 columns">
+                <hr />
+                <div class="row">
+                    <div class="large-6 columns">
+
+                        <a href="https://twitter.com/c_thomson"><img src="/theme/img/twitter.png" alt="Twitter" /></a>
+
+
+
+
+                    </div>
+                    <div class="large-6 columns">
+                        <p class="right"><small>Powered by <a href="http://getpelican.com/">Pelican</a> and <a href="https://github.com/kfr2/pelican-foundation">Pelican-Foundation</a>. And giraffes. Because we like giraffes.&nbsp;</small></p>
+                    </div>
+                </div>
+            </div>
+    </footer>
+
+    <script>
+        document.write('<script src=' +
+        ('__proto__' in {} ? 'christopherthomson.github.io/theme/js/vendor/zepto' : 'christopherthomson.github.io/theme/js/vendor/jquery') +
+        '.js><\/script>')
+    </script>
+    <script src="christopherthomson.github.io/theme/js/foundation.min.js"></script>
+  <!--
+  <script src="js/foundation/foundation.js"></script>
+  
+  <script src="js/foundation/foundation.alerts.js"></script>
+  
+  <script src="js/foundation/foundation.clearing.js"></script>
+  
+  <script src="js/foundation/foundation.cookie.js"></script>
+  
+  <script src="js/foundation/foundation.dropdown.js"></script>
+  
+  <script src="js/foundation/foundation.forms.js"></script>
+  
+  <script src="js/foundation/foundation.joyride.js"></script>
+  
+  <script src="js/foundation/foundation.magellan.js"></script>
+  
+  <script src="js/foundation/foundation.orbit.js"></script>
+  
+  <script src="js/foundation/foundation.placeholder.js"></script>
+  
+  <script src="js/foundation/foundation.reveal.js"></script>
+  
+  <script src="js/foundation/foundation.section.js"></script>
+  
+  <script src="js/foundation/foundation.tooltips.js"></script>
+  
+  <script src="js/foundation/foundation.topbar.js"></script>
+  
+  -->
+  
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+</html>
