@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'chris'
 SITENAME = u'Christopher Thomson'
-SITEURL = 'http://localhost:8000'
+SITEURL = 'https://christopherthomson.github.io'
 
 TIMEZONE = 'Pacific/Auckland'
 
@@ -30,7 +30,7 @@ TWITTER_USERNAME = 'c_thomson'
 DEFAULT_PAGINATION = 5
 
 # Uncomment following line if you want document-relative URLs when developing
-# RELATIVE_URLS = True
+RELATIVE_URLS = False
 
 THEME = 'pelican-foundation'
 TYPOGRIFY = True
