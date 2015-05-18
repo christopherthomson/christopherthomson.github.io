@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" ><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en" ><!--<![endif]-->
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>DigitalNZ search with&nbsp;XQuery | Christopher Thomson</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://christopherthomson.github.io/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://christopherthomson.github.io/theme/css/pelican-foundation.css" />
+    <script src="https://christopherthomson.github.io/theme/js/vendor/custom.modernizr.js"></script>
+
+</head>
+
+<body>
+    <!-- nav bar -->
+    <div class="row">
+        <div class="large-3 columns">
+            <figure id="user_logo">
+                <a href="https://christopherthomson.github.io"><div class="logo"><img src="https://christopherthomson.github.io/theme/img/giraffe2.png" alt="Christopher Thomson"></div></a>
+            </figure>
+        </div>
+        <div class="large-8 columns panel">
+            <ul class="inline-list right">
+                        <li><a href="https://christopherthomson.github.io/pages/about.html">About</a></li>
+                        <li><a href="https://christopherthomson.github.io/pages/projects.html">Projects</a></li>
+                        <li><a href="https://christopherthomson.github.io/pages/teaching.html">Teaching</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- author information/sidebar -->
+        <div class="large-4 columns">
+            <h2 class="subheader"><small>Christopher Thomson</small></h1>
+            <p class="hide-for-small">Writings and other morsels...</p>
+
+        </div>
+
+        <!-- main content -->
+        <div class="large-8 columns">
+    <article>
+        <h2 class="title">DigitalNZ search with&nbsp;XQuery <small><a href="https://christopherthomson.github.io/using-xquery-with-the-digitalnz-api.html" rel="bookmark" title="Permalink to DigitalNZ search with XQuery">&para;</small></a></h2>
+        <p>I decided I wanted to add an external search function as part of the
+<a href="http://christopherthomson.co.nz/blog/?p=68" title="bibliography">bibliography</a> I&#8217;m working on, and a <a href="http://www.digitalnz.org" title="DigitalNZ">DigitalNZ</a> search seemed to be
+the obvious choice.  XQuery makes this really easy, and I&#8217;m surprised it
+doesn&#8217;t feature on their <a href="http://www.digitalnz.org/developers/code-samples-and-libraries" title="list of code samples">list of code samples</a>.  Possibly it is so
+straightforward that an example isn&#8217;t&nbsp;necessary.</p>
+<p>I wanted a list of results for each author in the bibliography, broken
+down according to content provider offering those results. This can be
+grabbed by specifying <code>facets=content\_partner</code> in the query string.  All
+the work is done by the XQuery doc() function in the third line below -
+everything else is&nbsp;presentation.</p>
+<p>[[ gist christopherthomson:3943734&nbsp;]]</p>
+        <p><small>
+            Written on <time datetime="2013-03-11T08:18:00" pubdate>Mon 11 March 2013</time>.&nbsp;
+                Categorized under:  <a href="https://christopherthomson.github.io/category/uncategorized.html">Uncategorized</a>.&nbsp;
+        </small></p>
+    </article>
+
+
+    <footer>
+        <a href="https://christopherthomson.github.io/" class="button small round">&larr;&nbsp;&nbsp;&nbsp;Read more</a>
+    </footer>
+
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="row">
+            <div class="large-12 columns">
+                <hr />
+                <div class="row">
+                    <div class="large-6 columns">
+
+                        <a href="https://twitter.com/c_thomson"><img src="/theme/img/twitter.png" alt="Twitter" /></a>
+
+
+
+
+                    </div>
+                    <div class="large-6 columns">
+                        <p class="right"><small>Powered by <a href="http://getpelican.com/">Pelican</a> and <a href="https://github.com/kfr2/pelican-foundation">Pelican-Foundation</a>. And giraffes. Because we like giraffes.&nbsp;</small></p>
+                    </div>
+                </div>
+            </div>
+    </footer>
+
+    <script>
+        document.write('<script src=' +
+        ('__proto__' in {} ? 'https://christopherthomson.github.io/theme/js/vendor/zepto' : 'https://christopherthomson.github.io/theme/js/vendor/jquery') +
+        '.js><\/script>')
+    </script>
+    <script src="https://christopherthomson.github.io/theme/js/foundation.min.js"></script>
+  <!--
+  <script src="js/foundation/foundation.js"></script>
+  
+  <script src="js/foundation/foundation.alerts.js"></script>
+  
+  <script src="js/foundation/foundation.clearing.js"></script>
+  
+  <script src="js/foundation/foundation.cookie.js"></script>
+  
+  <script src="js/foundation/foundation.dropdown.js"></script>
+  
+  <script src="js/foundation/foundation.forms.js"></script>
+  
+  <script src="js/foundation/foundation.joyride.js"></script>
+  
+  <script src="js/foundation/foundation.magellan.js"></script>
+  
+  <script src="js/foundation/foundation.orbit.js"></script>
+  
+  <script src="js/foundation/foundation.placeholder.js"></script>
+  
+  <script src="js/foundation/foundation.reveal.js"></script>
+  
+  <script src="js/foundation/foundation.section.js"></script>
+  
+  <script src="js/foundation/foundation.tooltips.js"></script>
+  
+  <script src="js/foundation/foundation.topbar.js"></script>
+  
+  -->
+  
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+</html>
